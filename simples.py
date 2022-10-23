@@ -1,14 +1,3 @@
-# Bipartido Completo
-
-matriz = [[0, 0, 1, 1, 1],
-          [0, 0, 1, 1, 1],
-          [1, 1, 0, 0, 0],
-          [1, 1, 0, 0, 0],
-          [1, 1, 0, 0, 0]]
-
-matriz2 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-
-
 def vef_simples(matriz):
     # Verifica se existe valores maiores que 1 na matriz, se tiver nao é um Grafo simples
     #

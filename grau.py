@@ -34,3 +34,15 @@ def grau(matriz):
         graus_vertices.append(soma)
 
     return graus_vertices
+
+# ARESTAS
+#
+# As quantidade de arestas esta associada aos graus de uma matriz
+# equacao SOMATORIA de graus(v) = 2|E|; |E| = Quantidade de arestas
+# como ja existe a funcao que retorna uma lista de vertices
+# basta somar os valores da lista e divir por dois
+# SOMATORIA de graus(V)/2 = |E|
+
+def arestas(matriz):
+    Qarestas = sum(grau(matriz))/2
+    return Qarestas
