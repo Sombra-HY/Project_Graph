@@ -46,3 +46,11 @@ def grau(matriz):
 def arestas(matriz):
     Qarestas = sum(grau(matriz))/2
     return Qarestas
+
+# GRAFO REGULAR
+#
+# um grafo regular e dito como um que todas vertices tem a mesma quantidade de graus
+
+def regular(matriz):
+    matriz = grau(matriz)
+    return not any([(v!=matriz[0]) for v in matriz ])
