@@ -6,6 +6,7 @@ from simples import vef_simples
 #  [0,1,1] = 3 -1 =2 == sum(0,1,1)
 #  [1,0,1] = 3 -1 =2 == sum(1,0,1)
 #  [1,1,0] = 3 -1 =2 == sum(1,1,0)
+
 def completo(m):
     var = 0
 

@@ -55,5 +55,10 @@ def bipartido(matriz):
     print(conjunto)
     print(len(conjunto))
 
+    if len(conjunto)%2 == 0:
+        return True
+    else:
+        return False
+
 
 
