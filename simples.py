@@ -19,7 +19,7 @@ def vef_simples(matriz):
     lacos = []
     for x in range(len(matriz)):
         if (matriz[x][x] > 0):
-            lacos.append("V%d" % (x))
+            lacos.append("V%d" % (x+1))
 
     # PARALELAS OU MUTIPLAS
     #

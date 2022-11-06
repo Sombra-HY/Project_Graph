@@ -3,16 +3,22 @@
 from tkinter import Tk as tk
 from tkinter.filedialog import askopenfilename
 
+from simples import vef_simples
+from grau import grau, arestas, regular
+from completo import completo
 # Modulos responsaveis para determinacao das caracteristicas do grafo
 
-from grau import arestas, regular, grau
-from simples import vef_simples
-from bipartido import bipartido
-from completo import completo
+x =[[0, 1, 1, 1],
+    [1, 0, 1, 1],
+    [1, 1, 0, 1],
+    [1, 1, 1, 0]]
 
-x =[[0, 0, 0],
-    [0, 0, 1],
-    [0, 1, 0]]
+
+print(grau(x),
+      arestas(x),
+      regular(x),
+      completo(x),sep="\n")
+
 
 var = '1'
 def pega_arquivo():
@@ -28,13 +34,17 @@ def pega_arquivo():
     #   [ 1, 0, 1 ],
     #   [ 1, 0, 1 ]]
     #
-    tk().withdraw()
 
+
+    janela = tk()
     # Selecao de arquivo/ diretorio onde se encontra
+    janela.lift()
+    janela.attributes('-topmost',False)
+    janela.withdraw()
 
     diretorio = askopenfilename(filetypes=(("Arquivos de texto", "*.txt"), ("Arquivos csv", "*.csv")))
     arquivo = open(diretorio, "r")
-
+    janela.destroy()
     try:
         if arquivo:
             print("rodando...")
@@ -57,9 +67,4 @@ def pega_arquivo():
         return
 
 
-while var!='0':
-    var = input("\nDigite uma das opcoes abaixo:\n\n1 - Analisar um grafo, apartir de uma matriz adjacente\n0 - Sair \n")
-    if var == "1":
-        print("s")
-        pega_arquivo()
-
+pega_arquivo()
