@@ -8,6 +8,19 @@ def vef_simples(matriz):
 
     simples = not any([(max(linha) > 1) for linha in matriz])
 
+
+
+    simples1 = []
+    for x in range(len(matriz)):
+        simples1.append(matriz[x][x])
+
+    #vef linhas diagonais sao iguais a 0, ou sej a os lacos
+
+    simples1 = max(simples1)==0
+
+    # para ser simples nao poder ter lacos e nao poder ter numeros maior que 1
+    simples = True if simples and simples1 else False
+
     # LACOS:
     #
     # Um laco em uma matriz de adjacencia e basicamente a prensenca de algun valor maior que 0
@@ -36,11 +49,9 @@ def vef_simples(matriz):
     mutiplas = []
     for linha in range(len(matriz)):
         contador += 1
-
         for coluna in range(len(matriz[0])):
             if coluna + contador >= len(matriz):
                 break
-
             if matriz[linha][coluna + contador] > 1:
                 mutiplas.append("V%d V%d" % (linha + 1, coluna + contador + 1))
 

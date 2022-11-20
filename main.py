@@ -2,23 +2,10 @@
 
 from tkinter import Tk as tk
 from tkinter.filedialog import askopenfilename
-
 from simples import vef_simples
 from grau import grau, arestas, regular
 from completo import completo
 # Modulos responsaveis para determinacao das caracteristicas do grafo
-
-x =[[0, 1, 1, 1],
-    [1, 0, 1, 1],
-    [1, 1, 0, 1],
-    [1, 1, 1, 0]]
-
-
-print(grau(x),
-      arestas(x),
-      regular(x),
-      completo(x),sep="\n")
-
 
 var = '1'
 def pega_arquivo():
@@ -58,7 +45,6 @@ def pega_arquivo():
                 var = x.replace("\n", "").split(" ")
                 var = [int(x) for x in var]
                 dados.append(var)
-                print(dados)
 
         arquivo.close()
         return dados
@@ -66,5 +52,13 @@ def pega_arquivo():
         arquivo.close()
         return
 
+dados = [[0, 1, 1, 1],
+         [0, 1, 0, 1],
+         [1, 1, 0, 0],
+         [1, 1, 0, 0]]
 
-pega_arquivo()
+print("resultado = ",vef_simples(dados))
+print(arestas(dados))
+print(grau(dados))
+print(regular(dados))
+print(completo(dados))
