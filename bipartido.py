@@ -4,10 +4,10 @@
 # pode ser impar, se nao ele nao e bipartido
 # por exemplo, na matriz de adjacencia
 #
-#         v1 v2 v3
-#     v1 [0, 1, 0]
-# M = v2 [1, 0, 1]
-#     v3 [0, 1, 0]
+#          v1 v2 v3
+#       v1 [0, 1, 0]
+# M =   v2 [1, 0, 1]
+#       v3 [0, 1, 0]
 #
 # em todos os valores diferentes de 0, existe uma
 # aresta associada as vertices, pegando os valores da linha e
@@ -34,7 +34,6 @@ def bipartido(matriz):
 
             if matriz[linha][colunha] > 0:
                 arestas.append([linha+1, colunha+1])
-    print(arestas)
 
     # essa parte sera dedicada para formatacao da lista
     # no caso a lista atualmente esta nesse formato = [[1,2],[2,1],[3,1]...]

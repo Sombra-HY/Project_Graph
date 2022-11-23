@@ -14,7 +14,7 @@ def vef_simples(matriz):
     for x in range(len(matriz)):
         simples1.append(matriz[x][x])
 
-    #vef linhas diagonais sao iguais a 0, ou sej a os lacos
+    # vef linhas diagonais sao iguais a 0, ou seja os lacos
 
     simples1 = max(simples1)==0
 
