@@ -219,6 +219,8 @@ def main():
 
     #_____________________________   PRINCIPAL   _______________________________________________
     # chamada das funcoes
+    print("INTEGRANTES: \n\nLucas Sombra DO Nascimento RA : 22.122.120-0\nVinicius Henrique Silva RA : 22.122.063-5\nRafael Auguto RA: 22.122.103-9\n\n")
+
 
     # VERIFICACAO SIMPLES
     MATRIZ = pega_arquivo() # retorno da linha 55 (MATRIZ)
