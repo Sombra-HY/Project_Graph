@@ -192,30 +192,48 @@ def main():
 
         return True if var == 1 else False
 
-    # BIPARTIDO
+    # LOGICA BIPARTIDO
     #
-    # Para um grafo ser bipartido o comprimento de ciclos dele nao
-    # pode ser impar, se nao ele nao e bipartido
-    # por exemplo, na matriz de adjacencia
+    # para um grafo ser bipartido tem que ser possivel dividir as verticies
+    # em dois conjuntos a ponto de que ambos nao estejam na mesma conjunto
     #
-    #         v1 v2 v3
-    #     v1 [0, 1, 0]
-    # M = v2 [1, 0, 1]
-    #     v3 [0, 1, 0]
-    #
-    # em todos os valores diferentes de 0, existe uma
-    # aresta associada as vertices, pegando os valores da linha e
-    # e coluna, fazendo um par ordenado, onde tem um valor > 0 temos a
-    #
-    # lista =( v1v2 , v2v1 , v2v3 , v3v2)
-    #
-    # considerando que os elementos com vertices repetidas sao iguais
-    # temos o conjunto = ( v1v2 , v2v3 )
-    #
-    #
-    # o comprimento do conjunto e dois, len(conjunto) sendo par
-    # sendo um grafo bipartido
+    # é preciso ler todos elementos da matriz colocar em conjunto X se for maior que 0
+    # e preciso ver se a vertice esta no conjunto, se estiver coloque em outra,
+    # caso tenha duas vertices no conjunto iguais da um break
 
+    def bipartido(matriz):
+
+        # biparti e uma lista onde tem se ou nao bipartido, True ou FAlse
+        # e os dois conjuntos
+
+        biparti = [True,[0],[]]
+
+        # PASSANDO ELEMENTO POR ELEMENTO NA MATRIZ
+        for i in range(len(matriz)):
+            for j in range(len(matriz)):
+
+                if (i in biparti[1]) and (matriz[i][j] != 0) and (j not in biparti[2]):
+                    if j in biparti[1]:
+                        # Se essa condicao acontecer quer dizer que é nao bipartido
+                        biparti[0] = False
+                        break
+
+                    else:
+                        #adiocnando no conjunto Y
+
+                        biparti[2].append(j)
+
+                elif (i in biparti[2]) and (matriz[i][j] != 0) and (j not in biparti[1]):
+                    if j in biparti[1]:
+                        # Se essa condicao acontecer quer dizer que é nao bipartido
+                        biparti[0] = False
+                        break
+
+                    else:
+                        #adiocnando no conjunto X
+                        biparti[1].append(j)
+
+        return biparti
 
     #_____________________________   PRINCIPAL   _______________________________________________
     # chamada das funcoes
@@ -254,5 +272,18 @@ def main():
     # GRAFO REGULAR
 
     print("O grafo %s e regular" % ("" if regular(MATRIZ) else "nao"))
+
+    # GRAFO BIPARTIDO
+    # printando com formatacao
+    valores = bipartido(MATRIZ)
+    print("O grafo nao é biparido" if not valores[0] else ("O grafo e bipartido com os conjuntos X =",
+          *["V%d "% (x+1) for x in valores[1]],"e Y =",*["V%d "% (y+1) for y in valores[2]]))
+
+    # BIPARTIDO COMPLETO
+
+    # se for bipartido e completo ele é bipartido completo...
+    print("O grafo %s e bipartido completo"% ("" if (valores[0] and DADOS[0]) else "nao"))
+    print("" if not valores[0] else ("os conjuntos X =",
+          *["V%d "% (x+1) for x in valores[1]],"e Y =",*["V%d "% (y+1) for y in valores[2]]))
 
 main()
